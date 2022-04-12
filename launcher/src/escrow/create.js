@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import getWeb3 from "./../web3";
 import factoryAbi from "../contracts/EscrowFactoryAbi.json";
-import { ESCROW_FACTORY_ADDRESS } from "../constants";
+import { ESCROW_FACTORY_ADDRESS, ESCROW_AVAX_FACTORY_ADDRESS } from "../constants";
+import ChainId from "../getChain";
 
 export default function CreateEscrow({ onEscrowCreated }) {
   const [escrow, setEscrow] = useState("");
   const [lastEscrow, setLastEscrow] = useState("");
   const web3 = getWeb3();
+  const chainID = ChainId();
   const escrowFactory = new web3.eth.Contract(
     factoryAbi,
     ESCROW_FACTORY_ADDRESS
@@ -41,7 +43,7 @@ export default function CreateEscrow({ onEscrowCreated }) {
 
   return (
     <div className="escrow-create">
-      <span> Factory address {ESCROW_FACTORY_ADDRESS}</span>
+      <span> Factory address {chainID === 43114 ? ESCROW_AVAX_FACTORY_ADDRESS  : ESCROW_FACTORY_ADDRESS}</span>
       <span> Last escrow created {lastEscrow} </span>
       <span> Escrow created: {escrow} </span>
       <button onClick={create}> Create the Escrow </button>

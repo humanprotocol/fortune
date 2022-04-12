@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import EscrowABI from '../contracts/EscrowAbi.json';
 import HMTokenABI from '../contracts/HMTokenABI.json';
-import getWeb3 from '../web3';
-import {HMT_ADDRESS, REC_ORACLE_ADDRESS, REP_ORACLE_ADDRESS} from '../constants';
+import  getWeb3  from '../web3';
+import  ChainId  from '../getChain';
+import {HMT_ADDRESS, REC_ORACLE_ADDRESS, REP_ORACLE_ADDRESS, HMT_AVAX_ADDRESS, ESCROW_AVAX_FACTORY_ADDRESS} from '../constants';
 
 const statusesMap = ['Launched', 'Pending', 'Partial', 'Paid', 'Complete', 'Cancelled'];
 
@@ -101,8 +102,11 @@ function EscrowControls({escrowAddr, onUpdate}) {
   const [hmt, setHmt] = useState(0);
 
   const web3 = getWeb3();
-  const Escrow = new web3.eth.Contract(EscrowABI, escrowAddr);
-  const Token = new web3.eth.Contract(HMTokenABI, HMT_ADDRESS);
+  const chainID = ChainId();
+
+
+  const Escrow = chainID === 43114 ? new web3.eth.Contract(EscrowABI, ESCROW_AVAX_FACTORY_ADDRESS) : new web3.eth.Contract(EscrowABI, escrowAddr)
+  const Token = chainID === 43114 ? new web3.eth.Contract(HMTokenABI, HMT_AVAX_ADDRESS) : new web3.eth.Contract(HMTokenABI, HMT_ADDRESS);
 
   const fundEscrow = async () => {
     if (hmt <= 0) {
@@ -130,7 +134,6 @@ function EscrowControls({escrowAddr, onUpdate}) {
 
     onUpdate();
   }
-
 
   return (
     <>

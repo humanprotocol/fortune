@@ -8,3 +8,5 @@ export default function getWeb3() {
 
     return web3;
 }
+
+
