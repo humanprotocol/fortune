@@ -1,5 +1,3 @@
-
-
 const Web3 = require('web3');
 const escrowAbi = require('./contracts/EscrowAbi.json');
 const hmtokenAbi = require('./contracts/HMTokenABI.json');
