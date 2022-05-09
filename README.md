@@ -107,13 +107,9 @@ To fulfil this job we require answers (fortunes in our case) from 2 workers.
 1. In your Metamask wallet switch to the Worker 1 account that we imported above.  Navigate to http://ec2-3-15-230-238.us-east-2.compute.amazonaws.com:3001 and enter a fortune prediction (any text).
 2. Now switch to Worker 2 and enter a fortune prediction (it should be different from Worker 1).
 
-We have now provided 2 predictions from 2 Workers. Lets check the status of the job again by navigating to http://ec2-3-15-230-238.us-east-2.compute.amazonaws.com:3001/
+We have now provided 2 predictions from 2 Workers. Lets check the status of the job again by navigating to http://ec2-3-15-230-238.us-east-2.compute.amazonaws.com:3001
+You should see account balance for Worker 1 and 2 has increased by the relevant amount.  The final results URL can be found by navigating to the Job Launcher (http://ec2-3-15-230-238.us-east-2.compute.amazonaws.com:3000).
 
-
-
-PROBLEM: Cannot run playground version as the Create Escrow Transaction is expecting ETH. The wallets provided above only have HMT and so I am unable to create the escrow. I have followed the readme exactly, must investigate. Question when accessing the playground example are these accounts freshly generated or are they persisted. If they are persisted this could explain why they have no ETH (it has all be used up).
-
-===================================================================================================
 
 ## Running Locally
 
