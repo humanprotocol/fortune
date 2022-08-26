@@ -59,7 +59,7 @@ services:
     ports:
       - 3005:3005
     environment:
-      ETH_PRIVATE_KEY: 486a0621e595dd7fcbe5608cbbeec8f5a8b5cabe7637f11eccfc7acd408c3a0e
+      ETH_PRIVATE_KEY: 09762fa0f91726089540420b0a83c01048eb6b2ba178cafea7c12e5d96c57896
       ETH_HTTP_SERVER: http://ganache-test:8545
       PORT: 3005
     command: ["yarn", "start"]
@@ -70,7 +70,7 @@ services:
     ports:
       - 3006:3006
     environment:
-      ETH_PRIVATE_KEY: 657b6497a355a3982928d5515d48a84870f057c4d16923eb1d104c0afada9aa8
+      ETH_PRIVATE_KEY: 4b03dafb5fb7cef5909042fe01aa627440a9db7079d248575414dec8a9042ce0
       ETH_HTTP_SERVER: http://ganache-test:8545
       MINIO_HOST: minio-test
       MINIO_PORT: 9000

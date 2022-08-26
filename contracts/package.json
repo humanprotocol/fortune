@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "deploy": "truffle migrate --network=development"
+    "deploy": "truffle migrate --network skale --reset --compile-all --config=truffle-config.js && truffle develop"
   },
   "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.14",
     "truffle": "^5.4.32"
   }
 }

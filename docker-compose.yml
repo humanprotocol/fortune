@@ -1,12 +1,6 @@
 version: '3.7'
 
 services:
-  ganache:
-    image: trufflesuite/ganache-cli:v6.12.2
-    command: node /app/ganache-core.docker.cli.js --noVMErrorsOnRPCResponse --db=/ganache_data -m goat -i 1337 --hostname 0.0.0.0 --unlock 0x1413862c2b7054cdbfdc181b83962cb0fc11fd92 -g 1000 -v
-    ports:
-      - 8547:8545
-
   minio:
     image: quay.io/minio/minio
     ports:
@@ -19,7 +13,7 @@ services:
       - ./docker-manifest.json:/tmp/manifests/docker-manifest.json
     entrypoint: 'sh'
     command:
-      -c "mkdir -p /data/manifests && cp /tmp/manifests/docker-manifest.json /data/manifests/manifest.json && minio server /data --console-address ':9001'"
+      -c "ls /tmp/manifests/ && mkdir -p /data/manifests && cp /tmp/manifests/docker-manifest.json /data/manifests/manifest.json && minio server /data --console-address ':9001'"
 
   launcher:
     build:
@@ -40,8 +34,8 @@ services:
       context: ./recording-oracle
     network_mode: "host"
     environment:
-      ETH_PRIVATE_KEY: 486a0621e595dd7fcbe5608cbbeec8f5a8b5cabe7637f11eccfc7acd408c3a0e
-      ETH_HTTP_SERVER: http://localhost:8547
+      ETH_PRIVATE_KEY: 09762fa0f91726089540420b0a83c01048eb6b2ba178cafea7c12e5d96c57896
+      ETH_HTTP_SERVER: https://staging-v2.skalenodes.com/v1/stocky-pleione
       PORT: 3005
     command: ["yarn", "start"]
 
@@ -51,8 +45,8 @@ services:
     ports:
       - 3006:3006
     environment:
-      ETH_PRIVATE_KEY: 657b6497a355a3982928d5515d48a84870f057c4d16923eb1d104c0afada9aa8
-      ETH_HTTP_SERVER: http://ganache:8545
+      ETH_PRIVATE_KEY: 4b03dafb5fb7cef5909042fe01aa627440a9db7079d248575414dec8a9042ce0
+      ETH_HTTP_SERVER: https://staging-v2.skalenodes.com/v1/stocky-pleione
       MINIO_HOST: minio
       MINIO_PORT: 9000
       MINIO_ACCESS_KEY: dev

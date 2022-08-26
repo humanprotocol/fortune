@@ -7,7 +7,7 @@ const storage = require('./storage');
 const EscrowABI = require('./contracts/EscrowAbi.json');
 
 const app = express();
-const privKey = process.env.ETH_PRIVATE_KEY || '486a0621e595dd7fcbe5608cbbeec8f5a8b5cabe7637f11eccfc7acd408c3a0e'; // ganaches priv key
+const privKey = process.env.ETH_PRIVATE_KEY || '09762fa0f91726089540420b0a83c01048eb6b2ba178cafea7c12e5d96c57896'; // ganaches priv key
 const ethHttpServer = process.env.ETH_HTTP_SERVER || 'http://localhost:8547';
 const port = process.env.PORT || 3005;
 
