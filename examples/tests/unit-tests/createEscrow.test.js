@@ -1,5 +1,5 @@
 const Web3 = require('web3');
-const escrowAbi = require('./contracts/EscrowAbi.json');
+const escrowAbi = require('../contracts/EscrowAbi.json');
 const { createEscrowFactory, createEscrow} = require('./fixtures');
 const { urls, statusesMap} = require('./constants');
 const web3 = new Web3(urls.ethHTTPServer);
