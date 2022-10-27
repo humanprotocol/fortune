@@ -202,7 +202,8 @@ To run tests please execute the commands below:
 ```
 docker-compose -f docker-compose.test.yml up
 cd contracts && yarn && yarn deploy // this commands deploys contracts to the blockchain
-cd ../tests/ && yarn && yarn test:e2e-backend // this command runs tests
+cd ../tests/ && yarn && yarn test:unit-tests // this command runs unit tests
+cd ../tests/ && yarn && yarn test:e2e-backend // this command runs end to end tests
 ```
 
 # Deploy to any EVM network

@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test:e2e-backend": "jest tests/e2e-backend --runInBand"
+    "test:e2e-backend": "jest tests/e2e-backend --runInBand",
+    "test:unit-tests": "jest tests/unit-tests --runInBand"
   },
   "dependencies": {
     "axios": "^0.26.1",
